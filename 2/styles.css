@@ -7,7 +7,7 @@ body{
   --accent: #A4361D;
   --highlight: #F5D020;
   --fs-text: clamp(12px, 5vw, 16px);;
-  --fs-xl: clamp(2rem, 2.5vw, 5rem);
+  --fs-xl: clamp(1.5rem, 3vw, 5rem);
   --padding: 1em;
   --translate-value: 10px;
 
@@ -27,7 +27,6 @@ a{
 }
 
 .group{
-  background-color: var(--accent);
   color: var(--main);
   text-transform: uppercase;
 }
@@ -59,7 +58,7 @@ a{
   position: absolute;
   width: 115%;
   height: 100%;
-  clip-path: polygon(12.5% 0, 100% 0%, 100% 100%, 0% 100%);
+  clip-path: polygon(10% 0, 100% 0%, 100% 100%, 0% 100%);
 }
 
 .contact-group .info{
@@ -97,9 +96,20 @@ header > * > div{
   align-items: center;
 }
 
+.group.left{
+  align-items: flex-start;
+  justify-content: flex-start;
+}
+
 .logo{
+  background-color: var(--accent);
   font-weight: 500;
   font-size: var(--fs-xl);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.75rem 2rem 0.75rem 2rem;
+  margin: 1rem;
 }
 
 #menu-toggle{
@@ -132,6 +142,10 @@ header > * > div{
     left: 7.5%;
   }
 
+  /* .logo{
+    margin-top: 2em;
+  } */
+
   .group .tel{
     color: var(--highlight);
     font-size: 1.8em;
@@ -150,19 +164,22 @@ header > * > div{
   }
 
   .contact-group{
-    flex: 2;
+    flex: 1.5;
   }
 }
 
-@media (min-width: 975px)  {
-  #phone-icon{
-    left: 11%;
+@media (min-width: 925px)  {
+  .contact-group .info{
+    left: 17.5%;
+  }
+  .contact-group{
+    flex: 2.25;
   }
 }
 
 @media (min-width: 1200px)  {
-  #phone-icon{
-    left: 12.75%;
+  .contact-group .info{
+    left: 15%;
   }
 }
 
