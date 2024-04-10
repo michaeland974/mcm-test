@@ -6,7 +6,7 @@ body{
   --accent: #A4361D;
   --accent-2: #f5d22080;
   --highlight: #F5D020;
-  --fs-text: clamp(12px, 1.75vw, 16px);;
+  --fs-text: clamp(12px, 1.75vw, 22px);;
   --fs-xl: clamp(1.5rem, 3vw, 5rem);
   --padding: 1em;
   --translate-value: 10px;
@@ -187,12 +187,11 @@ header > * > div{
 #desktop-menu{
   display: none;
  
-  margin-right: 1rem;
+  margin-right: 2rem;
   justify-content: center;
   align-items: center;
   position: initial;
   background-color: initial;
-  
 }
 
 #phone-icon{
@@ -232,7 +231,7 @@ header > * > div{
   }
 }
 
-@media (min-width: 650px)  {
+@media (min-width: 700px)  {
   #desktop-menu{
     display: flex;
     opacity: 1;
@@ -244,9 +243,9 @@ header > * > div{
   }
 }
 
-@media (min-width: 750px)  {
+@media (min-width: 775px)  {
   .contact-group .info{
-    left: 20%;
+    left: 22%;
     top: 25%;
     font-size: 14px;
   }
@@ -270,5 +269,12 @@ header > * > div{
     left: 15%;
   }
 }
+
+@media (min-width: 1450px)  {
+  #desktop-menu{
+    margin-right: 7.5%;
+  }
+}
+
 
 
