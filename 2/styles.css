@@ -5,11 +5,13 @@ body{
   --main: #FEFEFE;
   --secondary: #252525;
   --accent: #A4361D;
+  --accent-2: #f5d22080;
   --highlight: #F5D020;
   --fs-text: clamp(12px, 5vw, 16px);;
   --fs-xl: clamp(1.5rem, 3vw, 5rem);
   --padding: 1em;
   --translate-value: 10px;
+  --transition-value: all 0.4s ease-in-out;
 
   font-family: Inter;
   background-color: var(--main);
@@ -69,8 +71,9 @@ a{
   font-size: 10px;
   text-align: center;
   gap: 5px;
-  top: 35%;
+  top: 27.5%;
   left: 0;
+  right: 15%;
 }
 
 .contact-group .info h2{
@@ -114,7 +117,72 @@ header > * > div{
 
 #menu-toggle{
   height: 40px;
+  background-color: transparent;
   width: 40px;
+  border: none;
+  padding: 0;
+  margin-top: -0.5rem;
+  cursor: pointer;
+}
+
+#menu-toggle .line{
+  display: block;
+  content: '';
+  height: 5.5px;
+  width: 100%;
+  margin: 4px;
+  background-color: var(--accent);
+  transition: var(--transition-value);
+}
+
+#menu-toggle[aria-expanded="true"] .line:nth-child(1){
+  transform: rotate(45deg) translate(7.5px, 7.5px);
+}
+
+#menu-toggle[aria-expanded="true"] .line:nth-child(2){
+  opacity: 0;
+}
+
+#menu-toggle[aria-expanded="true"] .line:nth-child(3){
+  transform: rotate(-45deg) translate(5px, -5px);
+}
+
+.middle{
+  position: relative;
+}
+
+#menu{
+  transform: translateY(0);
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background-color: var(--accent-2);
+  padding: 1rem;
+  z-index: 2;
+  opacity: 0;
+  visibility: hidden;
+  transition: var(--transition-value);
+}
+
+#menu-toggle[aria-expanded="true"] + #menu{
+  opacity: 1;
+  visibility: visible;
+  transform: translate(-25px, 75px);
+}
+
+#menu > ul{
+  width: 100%;
+  display: flex;
+  gap: 10px;
+}
+
+#menu > ul *{
+  text-wrap: nowrap;
+}
+
+#menu > ul > *:hover{
+  color: var(--accent);
+  text-decoration: underline var(--highlight) 2px;
 }
 
 #phone-icon{
@@ -142,17 +210,15 @@ header > * > div{
     left: 7.5%;
   }
 
-  /* .logo{
-    margin-top: 2em;
-  } */
-
   .group .tel{
     color: var(--highlight);
     font-size: 1.8em;
   }
 
   .contact-group .info{
+    top: 35%;
     left: 25%;
+    right: initial;
   }
 }
 
