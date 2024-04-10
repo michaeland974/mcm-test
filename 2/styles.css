@@ -154,8 +154,15 @@ header > * > div{
   }
 }
 
-@media (min-width: 1050px)  {
+@media (min-width: 975px)  {
   #phone-icon{
-    left: 12%;
+    left: 11%;
   }
 }
+
+@media (min-width: 1200px)  {
+  #phone-icon{
+    left: 12.75%;
+  }
+}
+
