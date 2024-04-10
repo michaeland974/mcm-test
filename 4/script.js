@@ -1,3 +1,12 @@
+/**
+ * Scroll to bottom of page
+ * Check for "More Results" button element
+ *  If button is rendered
+ *    Click
+ *  Else
+ *    Keep Scrolling
+ */
+
 function loadMoreResults(count, limit, element){
   if(count >= limit) return true;
   
@@ -28,3 +37,5 @@ const selectors = {
 }
 const {child, parent} = selectors;
 const button = document.querySelector(`${parent} ${child}`);
+
+loadMoreResults(0, 1, button);
