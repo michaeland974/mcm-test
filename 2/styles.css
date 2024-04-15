@@ -7,8 +7,9 @@ body{
   --accent-2: #f5d22080;
   --highlight: #F5D020;
   --fs-text: clamp(12px, 1.75vw, 22px);;
-  --fs-xl: clamp(1.5rem, 3vw, 5rem);
+  --fs-xl: clamp(1.2rem, 3vw, 5rem);
   --padding: 1em;
+  --nav-height: 85px;
   --translate-value: 10px;
   --transition-value: all 0.4s ease-in-out;
 
@@ -27,12 +28,29 @@ a{
   text-decoration: none; 
 }
 
+header{
+  height: var(--nav-height);
+  display: flex;
+}
+
+header > .left, 
+header > #mobile-middle{
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+header > .contact{
+  flex: 2;
+}
+
 .group{
   color: var(--main);
   text-transform: uppercase;
 }
 
-.contact-group{
+.contact{
   background-color: transparent;
   justify-content: flex-start;
   align-items: center;
@@ -42,17 +60,17 @@ a{
   flex: 1.5;
 }
 
-.contact-group *{
+.contact *{
   transform: translateX(var(--translate-value));
 }
 
-.contact-group > * {
+.contact > * {
   position: absolute;
   top: 0;
   left: 50%;
 }
 
-.contact-group::before{
+.contact::before{
   z-index: -1;
   background-color: var(--accent);
   content: '';
@@ -62,7 +80,7 @@ a{
   clip-path: polygon(10% 0, 100% 0%, 100% 100%, 0% 100%);
 }
 
-.contact-group .info{
+.contact .info{
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -75,43 +93,20 @@ a{
   right: 15%;
 }
 
-.contact-group .info h2{
+.contact .info h2{
   font-size: 1em;
 }
 
-.group .tel{
+.contact .tel{
   color: var(--highlight);
   font-size: 1.5em;
-}
-
-header > *{
-  height: 85px;
-  display: flex;
-  align-items: stretch;
-  justify-content: space-between;
-}
-
-header > * > div{
-  flex: 1;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.group.left{
-  align-items: flex-start;
-  justify-content: flex-start;
 }
 
 .logo{
   background-color: var(--accent);
   font-weight: 500;
   font-size: var(--fs-xl);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 0.75rem 2rem 0.75rem 2rem;
-  margin: 1rem;
+  padding: 0.5em 0.75em 0.5em 0.75em;
 }
 
 #menu-toggle{
@@ -274,7 +269,7 @@ header > * > div{
   #desktop-menu{
     margin-right: 7.5%;
   }
-}
+} 
 
 
 
