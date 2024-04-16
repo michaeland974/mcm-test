@@ -1,5 +1,5 @@
 const button = document.querySelector('#menu-toggle');
-const menu = document.querySelector('.menu');
+const menu = document.querySelector('.mobile > .menu');
 
 button.addEventListener('click', () => {
   const condition = button.getAttribute('aria-expanded');
@@ -7,3 +7,4 @@ button.addEventListener('click', () => {
   button.setAttribute('aria-expanded', newAtt);
   menu.setAttribute('aria-expanded', newAtt);
 });
+

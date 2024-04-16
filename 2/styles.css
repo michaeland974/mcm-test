@@ -11,7 +11,6 @@ body{
   --padding: 1em;
   --display-gap: 5px;
   --nav-height: 85px;
-  --translate-value: 10px;
   --transition-value: all 0.4s ease-in-out;
 
   font-family: Inter;
@@ -37,10 +36,6 @@ header > .left,
 header > .middle{
   flex: 1;
   display: flex;
-}
-
-header > .left,
-header > .middle{
   justify-content: center;
   align-items: center;
 }
@@ -93,7 +88,7 @@ header > .contact{
   transform: rotate(-45deg) translate(5px, -5px);
 }
 
-.menu{
+.middle.mobile > .menu{
   opacity: 0;
   visibility: hidden;
 
@@ -116,16 +111,21 @@ header > .contact{
 .menu > ul{
   width: 100%;
   display: flex;
-  gap: 10px;
+  gap: calc(var(--display-gap) * 2);
 }
 
 .menu > ul *{
+  font-weight: 500;
   text-wrap: nowrap;
 }
 
 .menu > ul > *:hover{
   color: var(--accent);
   text-decoration: underline var(--highlight) 2px;
+}
+
+.middle.tablet{
+  display: none;
 }
 
 .contact{
@@ -211,6 +211,14 @@ header > .contact{
   .contact > .wrapper{
     gap: calc(var(--display-gap) * 2);
   }
+
+  .middle.mobile{
+    display: none;
+  }
+
+  .middle.tablet{
+    display: flex;
+  }
 }
 
 @media (min-width: 1000px){
@@ -230,5 +238,12 @@ header > .contact{
 
   header > .contact{
     flex: 4;
+  }
+}
+@media (min-width: 1200px){
+  .menu > ul{
+    width: 100%;
+    display: flex;
+    gap: calc(var(--display-gap) * 3);
   }
 }
