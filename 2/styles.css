@@ -7,8 +7,9 @@ body{
   --accent-2: #f5d22080;
   --highlight: #F5D020;
   --fs-text: clamp(0.75rem, 1.75vw, 1rem);
-  --fs-xl: clamp(1.2rem, 3vw, 5rem);
+  --fs-xl: clamp(1.2rem, 3vw, 2.5rem);
   --padding: 1em;
+  --display-gap: 5px;
   --nav-height: 85px;
   --translate-value: 10px;
   --transition-value: all 0.4s ease-in-out;
@@ -18,7 +19,6 @@ body{
   color: var(--secondary);
   width: 100vw;
   height: 100svh;
-  font-size: 14px;
   font-size: var(--fs-text);
   overflow-x: hidden;
 }
@@ -37,6 +37,10 @@ header > .left,
 header > .middle{
   flex: 1;
   display: flex;
+}
+
+header > .left,
+header > .middle{
   justify-content: center;
   align-items: center;
 }
@@ -125,23 +129,13 @@ header > .contact{
 }
 
 .contact{
-  background-color: transparent;
+  display: flex;
   justify-content: flex-start;
   align-items: center;
-  gap: 5px;
+  flex: 1.5;
+  background-color: transparent;
   position: relative;
   isolation: isolate;
-  flex: 1.5;
-}
-
-.contact *{
-  transform: translateX(var(--translate-value));
-}
-
-.contact > * {
-  position: absolute;
-  top: 0;
-  left: 50%;
 }
 
 .contact::before{
@@ -154,34 +148,38 @@ header > .contact{
   clip-path: polygon(10% 0, 100% 0%, 100% 100%, 0% 100%);
 }
 
+.contact > .wrapper{
+  display: flex;
+  width: 100%;
+  position: absolute;
+  left: 65%;
+  top: 50%;
+  transform: translate(-50%,-50%);
+  gap: var(--display-gap);
+}
+
 .contact .info{
   display: flex;
   flex-direction: column;
   align-items: center;
   font-weight: 700;
-  font-size: 10px;
+  font-size: clamp(0.6rem, 1.75vw, 1rem);
   text-align: center;
-  gap: 5px;
-  top: 27.5%;
-  left: 0;
-  right: 15%;
+  gap: var(--display-gap);
 }
 
-.contact .info h2{
+.contact h2{
   font-size: 1em;
 }
 
-.contact .tel{
+.contact #tel{
   color: var(--highlight);
-  font-size: 1.5em;
+  font-size: 1.85em;
 }
 
 #phone-icon{
   display: none;
-  height: 40px;
-  width: 40px;
-  top: 30%;
-  left: 15%;
+  height: 30px;
 }
 
 #phone-icon > svg{
@@ -189,75 +187,49 @@ header > .contact{
   fill: var(--highlight);
 }
 
-
-@media (min-width: 425px)  {
-  .contact-group .info{
-    left: 10%;
-  }
-}
-
-@media (min-width: 550px)  {
+@media (min-width: 500px){
   #phone-icon{
     display: block;
-    left: 7.5%;
   }
 
-  .group .tel{
-    color: var(--highlight);
-    font-size: 1.8em;
-  }
-
-  .contact-group .info{
-    top: 35%;
-    left: 25%;
-    right: initial;
+  .contact > .wrapper{
+    left: 62.5%;
   }
 }
 
-@media (min-width: 700px)  {
-  #desktop-menu{
-    display: flex;
-    opacity: 1;
-    visibility: visible;
+@media (min-width: 600px){
+  #phone-icon{
+    height: 2.75em;
   }
 
-  #mobile-middle{
-    display: none;
+  .logo{
+    padding: 0.5em 1em 0.5em 1em;
   }
 }
 
-@media (min-width: 775px)  {
-  .contact-group .info{
-    left: 22%;
-    top: 25%;
-    font-size: 14px;
-  }
-
-  .contact-group{
-    flex: 1.5;
+@media (min-width: 700px){
+  .contact > .wrapper{
+    gap: calc(var(--display-gap) * 2);
   }
 }
 
-@media (min-width: 925px)  {
-  .contact-group .info{
-    left: 17.5%;
+
+@media (min-width: 1000px){
+  .logo{
+    padding: 0.3em 1.2em 0.3em 1em;
   }
-  .contact-group{
-    flex: 2.25;
+
+  header > .left{
+    justify-content: flex-start;
+    align-items: flex-start;
+    padding: 1em;
+  }
+
+  header > .middle{
+    flex: 2;
+  }
+
+  header > .contact{
+    flex: 4;
   }
 }
-
-@media (min-width: 1200px)  {
-  .contact-group .info{
-    left: 15%;
-  }
-}
-
-@media (min-width: 1450px)  {
-  #desktop-menu{
-    margin-right: 7.5%;
-  }
-} 
-
-
-
